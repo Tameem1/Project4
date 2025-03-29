@@ -1,5 +1,5 @@
 # Core dependencies
-pysqlite3-binary==0.5.2  # Explicitly include pysqlite3 binary
+pysqlite3-binary==0.5.3  # Explicitly include pysqlite3 binary
 
 # NLP & Machine Learning
 torch==2.3.0
