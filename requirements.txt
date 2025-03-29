@@ -6,7 +6,7 @@ torch==2.3.0
 sentence-transformers==2.2.2
 transformers==4.41.2
 huggingface-hub==0.24.0
-
+InstructorEmbedding
 # Vector Database
 chromadb==0.5.20
 
