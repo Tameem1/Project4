@@ -1,8 +1,10 @@
 # Core LangChain (matches your working env)
-langchain==0.3.21
-langchain-core==0.3.49  # Keep your working version
-langchain-text-splitters==0.3.7
-langsmith==0.3.19
+langchain==0.3.8
+langchain-cli==0.0.33             
+langchain-community==0.3.8               
+langchain-core==0.3.21            
+langchain-fireworks==0.2.5                
+
 pysqlite3-binary==0.5.3
 
 # Embeddings & NLP
@@ -12,7 +14,7 @@ torch==2.3.1
 transformers==4.41.2
 
 # Web Interface
-streamlit==1.36.0
+streamlit==1.40.1
 streamlit-extras==0.3.1
 
 # Rest of your original packages
