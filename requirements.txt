@@ -1,0 +1,12 @@
+# Natural Language Processing
+torch
+langchain==0.3.8
+chromadb==0.5.20
+sentence-transformers==2.2.2
+huggingface-hub==0.24.0
+transformers
+
+langchain-fireworks==0.2.5
+langchain-cli==0.0.33
+Langchain-community==0.3.8
+langchain-core==0.3.21

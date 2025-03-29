@@ -1,0 +1,406 @@
+2025-03-27 14:06:53,882 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-27 14:06:55,040 - INFO - Chroma DB documents: 0
+2025-03-27 14:06:55,040 - ERROR - Initialization failed
+Traceback (most recent call last):
+  File "/Users/tameem/Documents/islamic-finance-bot/qa.py", line 100, in initialize_components
+    raise ValueError("Database is empty")
+ValueError: Database is empty
+2025-03-27 14:10:00,986 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-27 14:10:01,625 - ERROR - Initialization failed
+Traceback (most recent call last):
+  File "/Users/tameem/Documents/islamic-finance-bot/qa.py", line 82, in initialize_components
+    embeddings = HuggingFaceInstructEmbeddings(
+  File "/opt/anaconda3/envs/localGPTFire/lib/python3.10/site-packages/langchain_community/embeddings/huggingface.py", line 190, in __init__
+    self.client = INSTRUCTOR(
+  File "/opt/anaconda3/envs/localGPTFire/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 308, in __init__
+    modules, self.module_kwargs = self._load_sbert_model(
+TypeError: INSTRUCTOR._load_sbert_model() got an unexpected keyword argument 'token'
+2025-03-27 14:10:41,620 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-27 14:10:42,444 - ERROR - Initialization failed
+Traceback (most recent call last):
+  File "/Users/tameem/Documents/islamic-finance-bot/qa.py", line 82, in initialize_components
+    embeddings = HuggingFaceInstructEmbeddings(
+  File "/opt/anaconda3/envs/localGPTFire/lib/python3.10/site-packages/langchain_community/embeddings/huggingface.py", line 190, in __init__
+    self.client = INSTRUCTOR(
+  File "/opt/anaconda3/envs/localGPTFire/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 308, in __init__
+    modules, self.module_kwargs = self._load_sbert_model(
+TypeError: INSTRUCTOR._load_sbert_model() got an unexpected keyword argument 'token'
+2025-03-27 14:11:31,397 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-27 14:11:31,900 - ERROR - Initialization failed
+Traceback (most recent call last):
+  File "/Users/tameem/Documents/islamic-finance-bot/qa.py", line 82, in initialize_components
+    embeddings = HuggingFaceInstructEmbeddings(
+  File "/opt/anaconda3/envs/localGPTFire/lib/python3.10/site-packages/langchain_community/embeddings/huggingface.py", line 190, in __init__
+    self.client = INSTRUCTOR(
+  File "/opt/anaconda3/envs/localGPTFire/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 308, in __init__
+    modules, self.module_kwargs = self._load_sbert_model(
+TypeError: INSTRUCTOR._load_sbert_model() got an unexpected keyword argument 'token'
+2025-03-27 14:14:09,183 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-27 14:14:10,361 - INFO - Chroma DB documents: 0
+2025-03-27 14:14:10,361 - ERROR - Initialization failed
+Traceback (most recent call last):
+  File "/Users/tameem/Documents/islamic-finance-bot/qa.py", line 100, in initialize_components
+    raise ValueError("Database is empty")
+ValueError: Database is empty
+2025-03-27 14:15:05,544 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-27 14:15:06,638 - INFO - Chroma DB documents: 520
+2025-03-27 14:15:18,491 - INFO - Query tokens: ['▁الفرق', '▁بين', '▁صور', '▁القر', 'وض', '▁الم', 'تبادل', 'ة']
+2025-03-27 14:15:52,046 - ERROR - Query failed: Server disconnected without sending a response.
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tameem/Documents/islamic-finance-bot/qa.py", line 183, in <module>
+    response = st.session_state.components["chain"]({"query": user_query})
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 389, in __call__
+    return self.invoke(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 170, in invoke
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/retrieval_qa/base.py", line 154, in _call
+    answer = self.combine_documents_chain.run(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 611, in run
+    return self(kwargs, callbacks=callbacks, tags=tags, metadata=metadata)[
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 389, in __call__
+    return self.invoke(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 170, in invoke
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/combine_documents/base.py", line 138, in _call
+    output, extra_return_dict = self.combine_docs(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/combine_documents/stuff.py", line 259, in combine_docs
+    return self.llm_chain.predict(callbacks=callbacks, **inputs), {}
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/llm.py", line 318, in predict
+    return self(kwargs, callbacks=callbacks)[self.output_key]
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 389, in __call__
+    return self.invoke(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 170, in invoke
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/llm.py", line 126, in _call
+    response = self.generate([inputs], run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/llm.py", line 138, in generate
+    return self.llm.generate_prompt(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 786, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 643, in generate
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 633, in generate
+    self._generate_with_cache(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 851, in _generate_with_cache
+    result = self._generate(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_fireworks/chat_models.py", line 506, in _generate
+    response = self.client.create(messages=message_dicts, **params)
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/chat_completion.py", line 41, in create
+    return super().create(
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/base_completion.py", line 81, in create
+    return cls._create_non_streaming(
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/base_completion.py", line 180, in _create_non_streaming
+    response = client.post_request_non_streaming(
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/api_client.py", line 159, in post_request_non_streaming
+    response = self._client.post(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 1144, in post
+    return self.request(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+2025-03-27 14:16:25,385 - INFO - Query tokens: ['▁الفرق', '▁بين', '▁صور', '▁القر', 'وض', '▁الم', 'تبادل', 'ة']
+2025-03-27 14:16:46,513 - INFO - HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:35:47,106 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-27 14:35:48,251 - INFO - Chroma DB documents: 520
+2025-03-27 14:36:01,475 - INFO - Query tokens: ['▁البد', 'یل', '▁الشر', 'عي', '▁للم', 'قا', 'صة', '▁بین', '▁الف', 'و', 'ائد', '▁الد', 'ائن', 'ة', '▁والم', 'دین', 'ة']
+2025-03-27 14:36:21,650 - INFO - HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:54:30,289 - ERROR - Query failed: st.session_state has no attribute "components". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.10/site-packages/streamlit/runtime/state/session_state.py", line 454, in __getitem__
+    return self._getitem(widget_id, key)
+  File "/opt/homebrew/lib/python3.10/site-packages/streamlit/runtime/state/session_state.py", line 499, in _getitem
+    raise KeyError
+KeyError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.10/site-packages/streamlit/runtime/state/session_state_proxy.py", line 130, in __getattr__
+    return self[key]
+  File "/opt/homebrew/lib/python3.10/site-packages/streamlit/runtime/state/session_state_proxy.py", line 101, in __getitem__
+    return get_session_state()[key]
+  File "/opt/homebrew/lib/python3.10/site-packages/streamlit/runtime/state/safe_session_state.py", line 96, in __getitem__
+    return self._state[key]
+  File "/opt/homebrew/lib/python3.10/site-packages/streamlit/runtime/state/session_state.py", line 456, in __getitem__
+    raise KeyError(_missing_key_error_message(key))
+KeyError: 'st.session_state has no key "components". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tameem/Documents/islamic-finance-bot/qa.py", line 252, in <module>
+    tokens = st.session_state.components["tokenizer"].tokenize(user_query)
+  File "/opt/homebrew/lib/python3.10/site-packages/streamlit/runtime/state/session_state_proxy.py", line 132, in __getattr__
+    raise AttributeError(_missing_attr_error_message(key))
+AttributeError: st.session_state has no attribute "components". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization
+2025-03-27 15:01:01,375 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-27 15:01:02,620 - INFO - Chroma DB documents: 520
+2025-03-29 13:14:41,506 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-29 13:14:42,718 - INFO - Chroma DB documents: 520
+2025-03-29 13:14:53,094 - INFO - Query tokens: ['▁البد', 'یل', '▁الشر', 'عي', '▁للم', 'قا', 'صة', '▁بین', '▁الف', 'و', 'ائد', '▁الد', 'ائن', 'ة', '▁والم', 'دین', 'ة']
+2025-03-29 13:15:08,725 - ERROR - Query failed: [Errno 8] nodename nor servname provided, or not known
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tameem/Documents/islamic-finance-bot/qa.py", line 185, in <module>
+    response = st.session_state.components["chain"]({"query": user_query})
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 389, in __call__
+    return self.invoke(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 170, in invoke
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/retrieval_qa/base.py", line 154, in _call
+    answer = self.combine_documents_chain.run(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 611, in run
+    return self(kwargs, callbacks=callbacks, tags=tags, metadata=metadata)[
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 389, in __call__
+    return self.invoke(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 170, in invoke
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/combine_documents/base.py", line 138, in _call
+    output, extra_return_dict = self.combine_docs(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/combine_documents/stuff.py", line 259, in combine_docs
+    return self.llm_chain.predict(callbacks=callbacks, **inputs), {}
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/llm.py", line 318, in predict
+    return self(kwargs, callbacks=callbacks)[self.output_key]
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 389, in __call__
+    return self.invoke(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 170, in invoke
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/llm.py", line 126, in _call
+    response = self.generate([inputs], run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/llm.py", line 138, in generate
+    return self.llm.generate_prompt(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 786, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 643, in generate
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 633, in generate
+    self._generate_with_cache(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 851, in _generate_with_cache
+    result = self._generate(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_fireworks/chat_models.py", line 506, in _generate
+    response = self.client.create(messages=message_dicts, **params)
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/chat_completion.py", line 41, in create
+    return super().create(
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/base_completion.py", line 81, in create
+    return cls._create_non_streaming(
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/base_completion.py", line 180, in _create_non_streaming
+    response = client.post_request_non_streaming(
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/api_client.py", line 159, in post_request_non_streaming
+    response = self._client.post(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 1144, in post
+    return self.request(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 8] nodename nor servname provided, or not known
+2025-03-29 13:15:30,558 - INFO - Query tokens: ['▁البد', 'یل', '▁الشر', 'عي', '▁للم', 'قا', 'صة', '▁بین', '▁الف', 'و', 'ائد', '▁الد', 'ائن', 'ة', '▁والم', 'دین', 'ة']
+2025-03-29 13:15:31,411 - ERROR - Query failed: [Errno 8] nodename nor servname provided, or not known
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tameem/Documents/islamic-finance-bot/qa.py", line 185, in <module>
+    response = st.session_state.components["chain"]({"query": user_query})
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 389, in __call__
+    return self.invoke(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 170, in invoke
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/retrieval_qa/base.py", line 154, in _call
+    answer = self.combine_documents_chain.run(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 611, in run
+    return self(kwargs, callbacks=callbacks, tags=tags, metadata=metadata)[
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 389, in __call__
+    return self.invoke(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 170, in invoke
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/combine_documents/base.py", line 138, in _call
+    output, extra_return_dict = self.combine_docs(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/combine_documents/stuff.py", line 259, in combine_docs
+    return self.llm_chain.predict(callbacks=callbacks, **inputs), {}
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/llm.py", line 318, in predict
+    return self(kwargs, callbacks=callbacks)[self.output_key]
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 182, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 389, in __call__
+    return self.invoke(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 170, in invoke
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/llm.py", line 126, in _call
+    response = self.generate([inputs], run_manager=run_manager)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain/chains/llm.py", line 138, in generate
+    return self.llm.generate_prompt(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 786, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 643, in generate
+    raise e
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 633, in generate
+    self._generate_with_cache(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 851, in _generate_with_cache
+    result = self._generate(
+  File "/opt/homebrew/lib/python3.10/site-packages/langchain_fireworks/chat_models.py", line 506, in _generate
+    response = self.client.create(messages=message_dicts, **params)
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/chat_completion.py", line 41, in create
+    return super().create(
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/base_completion.py", line 81, in create
+    return cls._create_non_streaming(
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/base_completion.py", line 180, in _create_non_streaming
+    response = client.post_request_non_streaming(
+  File "/opt/homebrew/lib/python3.10/site-packages/fireworks/client/api_client.py", line 159, in post_request_non_streaming
+    response = self._client.post(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 1144, in post
+    return self.request(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/homebrew/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 8] nodename nor servname provided, or not known
+2025-03-29 13:22:50,855 - INFO - Query tokens: ['▁البد', 'یل', '▁الشر', 'عي', '▁للم', 'قا', 'صة', '▁بین', '▁الف', 'و', 'ائد', '▁الد', 'ائن', 'ة', '▁والم', 'دین', 'ة']
+2025-03-29 13:23:03,546 - INFO - HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
