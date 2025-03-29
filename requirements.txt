@@ -3,7 +3,6 @@ langchain==0.3.21
 langchain-core==0.3.49  # Keep your working version
 langchain-text-splitters==0.3.7
 langsmith==0.3.19
-langchain-community==0.3.20 # Changed from 0.3.49 to 0.0.49
 pysqlite3-binary==0.5.3
 
 # Embeddings & NLP
