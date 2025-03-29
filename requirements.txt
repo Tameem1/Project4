@@ -12,7 +12,7 @@ InstructorEmbedding==1.0.1
 sentence-transformers==2.2.2
 torch
 transformers
-
+chromadb==0.5.20
 # Web Interface
 streamlit==1.40.1
 streamlit-extras==0.3.1
