@@ -188,14 +188,6 @@ if user_query:
                 source = doc.metadata.get("source", "غير معروف")
                 st.write(f"- {source}")
                 
-        # Retrieval diagnostics
-        st.subheader("تفاصيل الاسترجاع")
-        st.json({
-            "original_query": user_query,
-            "retrieved_sources": [doc.metadata.get("source") for doc in direct_docs],
-            "retrieval_score": [doc.metadata.get("score", 0.0) for doc in direct_docs],
-            "token_count": len(tokens)
-        })
         
     except Exception as e:
         logging.error(f"Query failed: {str(e)}", exc_info=True)
