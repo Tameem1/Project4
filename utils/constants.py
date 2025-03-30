@@ -4,7 +4,7 @@ from langchain.document_loaders import CSVLoader, PDFMinerLoader, TextLoader, Un
 from langchain.document_loaders import UnstructuredFileLoader, UnstructuredMarkdownLoader
 from langchain.document_loaders import UnstructuredHTMLLoader
 
-CHROMA_BASE_DIRECTORY = "chroma_dbs"
+CHROMA_BASE_DIRECTORY = "utils/chroma_dbs"
 ROOT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 
 PERSIST_DIRECTORY = f"{ROOT_DIRECTORY}/chroma_dbs"
@@ -16,8 +16,10 @@ CHROMA_SETTINGS = Settings(
 )
 
 # LLM Model configuration (If needed, adjust paths/names)
-EMBEDDING_MODEL_NAME = "intfloat/multilingual-e5-large"
-
+EMBEDDING_MODEL_NAME = os.environ.get(
+    "EMBEDDING_MODEL_NAME", 
+    "intfloat/multilingual-e5-large"  # Default value
+)
 
 def get_vectorstore_path() -> str:
     """
