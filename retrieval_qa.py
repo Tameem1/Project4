@@ -1,8 +1,11 @@
+__import__('pysqlite3')
 import sys
 import logging
 import torch
 import streamlit as st
 from streamlit_extras.add_vertical_space import add_vertical_space
+
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 
 # AI/ML Components
