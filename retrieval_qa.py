@@ -133,9 +133,10 @@ def initialize_components():
 
 
 
-# Text direction CSS
+# Text direction CSS and header removal
 st.markdown("""
     <style>
+        /* Existing RTL styles */
         .stTextInput input {
             direction: rtl;
             text-align: right;
@@ -146,6 +147,12 @@ st.markdown("""
             text-align: right;
             unicode-bidi: embed;
         }
+        
+        /* New header/footer removal */
+        #stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        [data-testid="stHeader"] {display: none;}
+        [data-testid="stToolbar"] {display: none;}
     </style>
 """, unsafe_allow_html=True)
 
