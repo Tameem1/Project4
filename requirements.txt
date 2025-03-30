@@ -1,20 +1,41 @@
-# Core LangChain (matches your working env)
-langchain==0.3.8
-langchain-cli==0.0.33             
-langchain-community==0.3.8               
-langchain-core==0.3.21            
-langchain-fireworks==0.2.5                
-huggingface-hub==0.24.0
-pydantic>=2.7.4
-pysqlite3-binary==0.5.3
-
-# Embeddings & NLP
-InstructorEmbedding==1.0.1
-sentence-transformers==2.2.2
+# Natural Language Processing
 torch
-transformers
+langchain==0.3.8
 chromadb==0.5.20
-# Web Interface
-streamlit==1.40.1
-streamlit-extras==0.3.1
+pdfminer.six==20221105
+InstructorEmbedding
+sentence-transformers==2.2.2
+faiss-cpu
+huggingface-hub==0.24.0
+transformers
+autoawq; sys_platform != 'darwin'
+protobuf; sys_platform != 'darwin'
+protobuf; sys_platform == 'darwin' and platform_machine != 'arm64'
+protobuf; sys_platform == 'darwin' and platform_machine == 'arm64'
 
+
+# Utilities
+urllib3==1.26.6
+accelerate
+bitsandbytes ; sys_platform != 'win32'
+bitsandbytes-windows ; sys_platform == 'win32'
+click
+flask
+requests
+
+# Streamlit related
+streamlit
+streamlit-extras==0.5.0
+
+# Excel File Manipulation
+openpyxl
+
+# Fireworks
+langchain-fireworks==0.2.5
+langchain-cli==0.0.33
+Langchain-community==0.3.8
+langchain-core==0.3.21
+
+pydantic==2.10.1
+
+pysqlite3-binary
