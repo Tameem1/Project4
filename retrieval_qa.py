@@ -15,7 +15,6 @@ from langchain_fireworks import ChatFireworks
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.prompts import PromptTemplate
 
-
 # Configuration
 from utils.constants import (
     CHROMA_SETTINGS,
@@ -56,15 +55,6 @@ def initialize_conversation_chain():
         memory_key="history"
     )
 
-def configure_sidebar():
-    """Set up the Islamic banking interface"""
-    with st.sidebar:
-        st.title("مساعد الخدمات المصرفية الإسلامية")
-        st.markdown("""
-        نظام ذكي متخصص في الخدمات المصرفية الإسلامية
-        """)
-        add_vertical_space(3)
-        st.write("2025")
 
 def detect_computation_device():
     """Hardware detection"""
@@ -98,9 +88,6 @@ def initialize_components():
             
             if doc_count == 0:
                 raise ValueError("Database is empty")
-                
-            
-            
             
             # Configure retriever
             retriever = db_store.as_retriever(
@@ -144,14 +131,34 @@ def initialize_components():
             st.error("فشل تحميل النظام. يرجى التحقق من السجلات.")
             raise
 
-# Application Interface
-configure_sidebar()
-st.header("المساعد البنكي الإسلامي 💰")
+
+
+# Text direction CSS
+st.markdown("""
+    <style>
+        .stTextInput input {
+            direction: rtl;
+            text-align: right;
+            padding-right: 20px;
+        }
+        .rtl-text {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: embed;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Main content
+st.markdown("<div class='rtl-text'><h1>المساعد البنكي الإسلامي 💰</h1></div>", unsafe_allow_html=True)
 initialize_components()
 
 # Query Processing
-user_query = st.text_input("اكتب استفسارك المصرفي هنا", placeholder="ما هي شروط القرض الإسلامي؟")
-
+user_query = st.text_input(
+    " ",
+    placeholder="ما هي شروط القرض الإسلامي؟",
+    label_visibility="collapsed"
+)
 
 if user_query:
     try:
@@ -159,8 +166,6 @@ if user_query:
         if not is_arabic(user_query):
             st.warning("الاستفسار يحتوي على نص غير عربي")
             raise ValueError("Non-Arabic query")
-            
-       
         
         # Retrieve documents
         direct_docs = st.session_state.components["retriever"].get_relevant_documents(user_query)
@@ -178,17 +183,18 @@ if user_query:
         response = st.session_state.components["chain"]({"query": user_query})
         
         # Display results
-        st.subheader("الإجابة")
-        st.write(response.get("result", "لا تتوفر إجابة حاليا"))
+        st.markdown("<div class='rtl-text'><h2>الإجابة</h2></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='rtl-text'>{response.get('result', 'لا تتوفر إجابة حاليا')}</div>", 
+                    unsafe_allow_html=True)
         
         # Display sources
         if direct_docs:
-            st.subheader("المصادر")
+            st.markdown("<div class='rtl-text'><h2>المصادر</h2></div>", unsafe_allow_html=True)
             for doc in direct_docs[:3]:
                 source = doc.metadata.get("source", "غير معروف")
-                st.write(f"- {source}")
+                st.markdown(f"<div class='rtl-text'>- {source}</div>", 
+                            unsafe_allow_html=True)
                 
-        
     except Exception as e:
         logging.error(f"Query failed: {str(e)}", exc_info=True)
         st.error("حدث خطأ في المعالجة. يرجى المحاولة لاحقًا.")
