@@ -14,7 +14,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain_fireworks import ChatFireworks
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.prompts import PromptTemplate
-from transformers import AutoTokenizer
+
 
 # Configuration
 from utils.constants import (
@@ -99,8 +99,8 @@ def initialize_components():
             if doc_count == 0:
                 raise ValueError("Database is empty")
                 
-            # Initialize tokenizer
-            tokenizer = AutoTokenizer.from_pretrained(EMBEDDING_MODEL_NAME)
+            
+            
             
             # Configure retriever
             retriever = db_store.as_retriever(
@@ -126,7 +126,6 @@ def initialize_components():
             st.session_state.components = {
                 "retriever": retriever,
                 "db_store": db_store,
-                "tokenizer": tokenizer,
                 "llm": llm,
                 "chain": RetrievalQA.from_chain_type(
                     llm=llm,
@@ -161,9 +160,7 @@ if user_query:
             st.warning("الاستفسار يحتوي على نص غير عربي")
             raise ValueError("Non-Arabic query")
             
-        # Tokenization diagnostics
-        tokens = st.session_state.components["tokenizer"].tokenize(user_query)
-        logging.info(f"Query tokens: {tokens}")
+       
         
         # Retrieve documents
         direct_docs = st.session_state.components["retriever"].get_relevant_documents(user_query)
