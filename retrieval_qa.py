@@ -1,11 +1,9 @@
-__import__('pysqlite3')
 import sys
 import logging
 import torch
 import streamlit as st
 from streamlit_extras.add_vertical_space import add_vertical_space
 
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # AI/ML Components
 from langchain.vectorstores import Chroma
@@ -173,21 +171,21 @@ if user_query:
         if not is_arabic(user_query):
             st.warning("الاستفسار يحتوي على نص غير عربي")
             raise ValueError("Non-Arabic query")
-        
-        # Retrieve documents
-        direct_docs = st.session_state.components["retriever"].get_relevant_documents(user_query)
-        
-        # Fallback mechanism
-        if not direct_docs:
-            logging.warning("Primary retrieval failed - using fallback")
-            direct_docs = st.session_state.components["db_store"].max_marginal_relevance_search(
-                user_query,
-                k=5,
-                fetch_k=20
-            )
+        with st.spinner("جاري معالجة سؤالك، يرجى الانتظار..."):
+            # Retrieve documents
+            direct_docs = st.session_state.components["retriever"].get_relevant_documents(user_query)
             
-        # Process response
-        response = st.session_state.components["chain"]({"query": user_query})
+            # Fallback mechanism
+            if not direct_docs:
+                logging.warning("Primary retrieval failed - using fallback")
+                direct_docs = st.session_state.components["db_store"].max_marginal_relevance_search(
+                    user_query,
+                    k=5,
+                    fetch_k=20
+                )
+                
+            # Process response
+            response = st.session_state.components["chain"]({"query": user_query})
         
         # Display results
         st.markdown("<div class='rtl-text'><h2>الإجابة</h2></div>", unsafe_allow_html=True)
