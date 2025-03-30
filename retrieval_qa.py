@@ -1,4 +1,5 @@
 __import__('pysqlite3')
+import os
 import sys
 import logging
 import torch
@@ -6,7 +7,6 @@ import streamlit as st
 from streamlit_extras.add_vertical_space import add_vertical_space
 
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 
 # AI/ML Components
 from langchain.vectorstores import Chroma
@@ -100,10 +100,22 @@ def initialize_components():
                 }
             )
             
-            # Initialize LLM
+            # Get API key from environment
+            fireworks_api_key = os.environ.get("FIREWORKS_API_KEY")
+            if not fireworks_api_key:
+                st.error("Missing FIREWORKS_API_KEY in environment variables")
+                raise ValueError("FIREWORKS_API_KEY not set")
+            
+            # Get model name from environment with fallback
+            model_name = os.environ.get(
+                "FIREWORKS_MODEL_NAME", 
+                "accounts/fireworks/models/qwen2p5-coder-32b-instruct"
+            )
+
+            # Initialize LLM with environment variables
             llm = ChatFireworks(
-                api_key="fw_3ZfGXeDhjJfUxVHUVRBDfMeU",
-                model="accounts/fireworks/models/qwen2p5-coder-32b-instruct",
+                api_key=fireworks_api_key,  # From environment
+                model=model_name,           # From environment
                 temperature=0.7,
                 max_tokens=1500,
                 top_p=1.0
@@ -134,10 +146,9 @@ def initialize_components():
 
 
 
-# Text direction CSS and header removal
+# Text direction CSS
 st.markdown("""
     <style>
-        /* Existing RTL styles */
         .stTextInput input {
             direction: rtl;
             text-align: right;
@@ -148,12 +159,6 @@ st.markdown("""
             text-align: right;
             unicode-bidi: embed;
         }
-        
-        /* New header/footer removal */
-        #stDeployButton {display:none;}
-        footer {visibility: hidden;}
-        [data-testid="stHeader"] {display: none;}
-        [data-testid="stToolbar"] {display: none;}
     </style>
 """, unsafe_allow_html=True)
 
@@ -174,21 +179,21 @@ if user_query:
         if not is_arabic(user_query):
             st.warning("الاستفسار يحتوي على نص غير عربي")
             raise ValueError("Non-Arabic query")
-        with st.spinner("جاري معالجة سؤالك، يرجى الانتظار..."):
-            # Retrieve documents
-            direct_docs = st.session_state.components["retriever"].get_relevant_documents(user_query)
+        
+        # Retrieve documents
+        direct_docs = st.session_state.components["retriever"].get_relevant_documents(user_query)
+        
+        # Fallback mechanism
+        if not direct_docs:
+            logging.warning("Primary retrieval failed - using fallback")
+            direct_docs = st.session_state.components["db_store"].max_marginal_relevance_search(
+                user_query,
+                k=5,
+                fetch_k=20
+            )
             
-            # Fallback mechanism
-            if not direct_docs:
-                logging.warning("Primary retrieval failed - using fallback")
-                direct_docs = st.session_state.components["db_store"].max_marginal_relevance_search(
-                    user_query,
-                    k=5,
-                    fetch_k=20
-                )
-                
-            # Process response
-            response = st.session_state.components["chain"]({"query": user_query})
+        # Process response
+        response = st.session_state.components["chain"]({"query": user_query})
         
         # Display results
         st.markdown("<div class='rtl-text'><h2>الإجابة</h2></div>", unsafe_allow_html=True)
