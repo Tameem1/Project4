@@ -159,11 +159,12 @@ st.markdown("""
             text-align: right;
             unicode-bidi: embed;
         }
-        /* New header/footer removal */
-         #stDeployButton {display:none;}
-         footer {visibility: hidden;}
-         [data-testid="stHeader"] {display: none;}
-         [data-testid="stToolbar"] {display: none;}
+        /* Improved header/footer removal */
+        #stDeployButton {display:none;}
+        footer {display: none;}
+        [data-testid="stHeader"] {display: none;}
+        [data-testid="stToolbar"] {display: none;}
+        [data-testid="stFooter"] {display: none;}
     </style>
 """, unsafe_allow_html=True)
 
